@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #1a2235 inset !important;
+    -webkit-text-fill-color: #f8fafc !important;
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #f8fafc 30%, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-5px); }
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-fade-up  { animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+  .animate-float    { animation: float 4s ease-in-out infinite; }
+  .animate-float-2  { animation: float 4s ease-in-out 0.5s infinite; }
+  .animate-float-3  { animation: float 4s ease-in-out 1s infinite; }
+  .animate-spin-fast{ animation: spin 0.7s linear infinite; }
+
+  /* Hero dot-grid background */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, rgba(139,92,246,0.18) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Glow shadow */
+  .shadow-violet { box-shadow: 0 0 28px rgba(124,58,237,0.45); }
+  .shadow-violet-lg { box-shadow: 0 0 48px rgba(124,58,237,0.4); }
+}
