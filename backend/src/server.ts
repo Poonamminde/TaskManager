@@ -4,6 +4,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db';
 import authRoutes from './routes/authRoutes';
+import taskRoutes from './routes/taskRoutes';
 import errorHandler from './middleware/errorHandler';
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ success: true, message: 'TaskManager API is running 🚀' });
