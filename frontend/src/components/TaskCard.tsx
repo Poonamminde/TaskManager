@@ -7,7 +7,7 @@ import type { Task, TaskStatus, UpdateTaskPayload } from '../types/task';
 
 interface Props {
   task: Task;
-  onUpdate: (id: string, payload: UpdateTaskPayload) => Promise<void>;
+  onUpdate: (id: string, payload: UpdateTaskPayload) => Promise<Task>;
   onDelete: (id: string) => Promise<void>;
 }
 
