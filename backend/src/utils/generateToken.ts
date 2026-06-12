@@ -14,8 +14,8 @@ const generateToken = (res: Response, userId: Types.ObjectId): void => {
 
   res.cookie('jwt', token, {
     httpOnly: true,
-    secure: isProd,
-    sameSite: 'strict',
+    secure: isProd,           // HTTPS only in production
+    sameSite: isProd ? 'none' : 'strict', // 'none' required for cross-origin in prod
     maxAge,
   });
 };
